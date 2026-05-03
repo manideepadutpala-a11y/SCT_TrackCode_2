@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mall Customer Dashboard</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="page-shell">
+    <header class="hero">
+        <div class="hero-copy">
+            <p class="eyebrow">Retail Customer Segmentation</p>
+            <h1>Interactive KMeans Dashboard</h1>
+            <p>Switch between marketing categories, performance trends, and customer insights with one click.</p>
+        </div>
+        <div class="hero-actions">
+            <a class="button primary" href="#summary" data-tab="summary">View insights</a>
+            <a class="button secondary" href="#charts" data-tab="charts">Open charts</a>
+        </div>
+    </header>
+
+    <div class="tab-menu">
+        <button class="tab-button active" data-tab="summary">Summary</button>
+        <button class="tab-button" data-tab="charts">Charts</button>
+        <button class="tab-button" data-tab="categories">Categories</button>
+        <button class="tab-button" data-tab="trends">Trends</button>
+    </div>
+
+    <section class="panel" data-panel="summary">
+        <div class="panel-header">
+            <h2>Overview</h2>
+            <p>Core customer metrics based on annual income and spending score.</p>
+        </div>
+        <div class="grid cards-grid">
+            <article class="card small-card">
+                <span>Total customers</span>
+                <strong>200</strong>
+            </article>
+            <article class="card small-card">
+                <span>Male customers</span>
+                <strong>88</strong>
+            </article>
+            <article class="card small-card">
+                <span>Female customers</span>
+                <strong>112</strong>
+            </article>
+            <article class="card small-card">
+                <span>Average age</span>
+                <strong>38.8</strong>
+            </article>
+            <article class="card small-card">
+                <span>Average income</span>
+                <strong>60.6k$</strong>
+            </article>
+            <article class="card small-card">
+                <span>Average spending</span>
+                <strong>50.2</strong>
+            </article>
+            <article class="card small-card">
+                <span>High spenders</span>
+                <strong>54</strong>
+            </article>
+            <article class="card small-card">
+                <span>High income</span>
+                <strong>38</strong>
+            </article>
+        </div>
+
+        <div class="panel-header" style="margin-top: 30px;">
+            <h2>Cluster summary</h2>
+            <p>Understand the customer segments discovered by KMeans clustering.</p>
+        </div>
+        <div class="table-card">
+            <table>
+                <thead>
+                    <tr><th>Cluster</th><th>Customers</th><th>Avg Age</th><th>Avg Income</th><th>Avg Spending</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>0</td><td>81</td><td>42.7</td><td>55.3</td><td>49.5</td></tr>
+<tr><td>1</td><td>39</td><td>32.7</td><td>86.5</td><td>82.1</td></tr>
+<tr><td>2</td><td>22</td><td>25.3</td><td>25.7</td><td>79.4</td></tr>
+<tr><td>3</td><td>35</td><td>41.1</td><td>88.2</td><td>17.1</td></tr>
+<tr><td>4</td><td>23</td><td>45.2</td><td>26.3</td><td>20.9</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="panel hidden" data-panel="charts">
+        <div class="panel-header">
+            <h2>Chart view</h2>
+            <p>Interactive pie chart and graphs generated directly from the dataset.</p>
+        </div>
+        <div class="chart-grid">
+            <article class="chart-card">
+                <h3>Gender distribution</h3>
+                <canvas id="genderPie"></canvas>
+            </article>
+            <article class="chart-card">
+                <h3>Spending score by gender</h3>
+                <canvas id="spendBar"></canvas>
+            </article>
+            <article class="chart-card">
+                <h3>Cluster sizes</h3>
+                <canvas id="clusterBar"></canvas>
+            </article>
+            <article class="chart-card">
+                <h3>Income vs spending</h3>
+                <canvas id="scatterChart"></canvas>
+            </article>
+        </div>
+    </section>
+
+    <section class="panel hidden" data-panel="categories">
+        <div class="panel-header">
+            <h2>Customer categories</h2>
+            <p>Segment buyers into strategic groups from the clustering results.</p>
+        </div>
+        <div class="grid category-grid">
+            <article class="category-card">
+                <div class="badge">Target</div>
+                <h3>Target shoppers</h3>
+                <p>High-income, high-spending customers ready for premium offers.</p>
+                <strong>39 customers</strong>
+            </article>
+            <article class="category-card">
+                <div class="badge">Loyal</div>
+                <h3>Loyal value buyers</h3>
+                <p>Steady spenders with good affinity for loyalty and repeat offers.</p>
+                <strong>39 customers</strong>
+            </article>
+            <article class="category-card">
+                <div class="badge">Value</div>
+                <h3>Value seekers</h3>
+                <p>Price-aware shoppers who respond well to sale and festival discounts.</p>
+                <strong>22 customers</strong>
+            </article>
+            <article class="category-card">
+                <div class="badge">Occasional</div>
+                <h3>Occasional visitors</h3>
+                <p>Less frequent buyers who need tailored engagement and follow-ups.</p>
+                <strong>23 customers</strong>
+            </article>
+        </div>
+    </section>
+
+    <section class="panel hidden" data-panel="trends">
+        <div class="panel-header">
+            <h2>Time-based insights</h2>
+            <p>Yearly focus and day-wise engagement help shape marketing strategy.</p>
+        </div>
+        <div class="trends-row">
+            <article class="trend-card">
+                <h4>Yearly campaign focus</h4>
+                <div class="trend-line">
+                    <div><span>2021</span><strong>62%</strong></div>
+                    <div><span>2022</span><strong>74%</strong></div>
+                    <div><span>2023</span><strong>83%</strong></div>
+                    <div><span>2024</span><strong>92%</strong></div>
+                </div>
+            </article>
+            <article class="trend-card">
+                <h4>Day-wise mall visits</h4>
+                <div class="bar-chart">
+                    <div><span>Mon</span><div class='bar' style='width: 96%'></div><strong>28</strong></div>
+<div><span>Tue</span><div class='bar' style='width: 100%'></div><strong>29</strong></div>
+<div><span>Wed</span><div class='bar' style='width: 100%'></div><strong>29</strong></div>
+<div><span>Thu</span><div class='bar' style='width: 100%'></div><strong>29</strong></div>
+<div><span>Fri</span><div class='bar' style='width: 100%'></div><strong>29</strong></div>
+<div><span>Sat</span><div class='bar' style='width: 96%'></div><strong>28</strong></div>
+<div><span>Sun</span><div class='bar' style='width: 96%'></div><strong>28</strong></div>
+                </div>
+            </article>
+        </div>
+    </section>
+</div>
+<script>
+window.dashboardData = {"genderLabels": ["Male", "Female"], "genderCounts": [88, 112], "spendLabels": ["Male", "Female"], "spendValues": [48.5, 51.5], "clusterLabels": ["Cluster 0", "Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4"], "clusterCounts": [81, 39, 22, 35, 23], "clusterIncome": [55.3, 86.5, 25.7, 88.2, 26.3], "scatterPoints": [{"x": 15.0, "y": 39.0, "cluster": 4}, {"x": 15.0, "y": 81.0, "cluster": 2}, {"x": 16.0, "y": 6.0, "cluster": 4}, {"x": 16.0, "y": 77.0, "cluster": 2}, {"x": 17.0, "y": 40.0, "cluster": 4}, {"x": 17.0, "y": 76.0, "cluster": 2}, {"x": 18.0, "y": 6.0, "cluster": 4}, {"x": 18.0, "y": 94.0, "cluster": 2}, {"x": 19.0, "y": 3.0, "cluster": 4}, {"x": 19.0, "y": 72.0, "cluster": 2}, {"x": 19.0, "y": 14.0, "cluster": 4}, {"x": 19.0, "y": 99.0, "cluster": 2}, {"x": 20.0, "y": 15.0, "cluster": 4}, {"x": 20.0, "y": 77.0, "cluster": 2}, {"x": 20.0, "y": 13.0, "cluster": 4}, {"x": 20.0, "y": 79.0, "cluster": 2}, {"x": 21.0, "y": 35.0, "cluster": 4}, {"x": 21.0, "y": 66.0, "cluster": 2}, {"x": 23.0, "y": 29.0, "cluster": 4}, {"x": 23.0, "y": 98.0, "cluster": 2}, {"x": 24.0, "y": 35.0, "cluster": 4}, {"x": 24.0, "y": 73.0, "cluster": 2}, {"x": 25.0, "y": 5.0, "cluster": 4}, {"x": 25.0, "y": 73.0, "cluster": 2}, {"x": 28.0, "y": 14.0, "cluster": 4}, {"x": 28.0, "y": 82.0, "cluster": 2}, {"x": 28.0, "y": 32.0, "cluster": 4}, {"x": 28.0, "y": 61.0, "cluster": 2}, {"x": 29.0, "y": 31.0, "cluster": 4}, {"x": 29.0, "y": 87.0, "cluster": 2}, {"x": 30.0, "y": 4.0, "cluster": 4}, {"x": 30.0, "y": 73.0, "cluster": 2}, {"x": 33.0, "y": 4.0, "cluster": 4}, {"x": 33.0, "y": 92.0, "cluster": 2}, {"x": 33.0, "y": 14.0, "cluster": 4}, {"x": 33.0, "y": 81.0, "cluster": 2}, {"x": 34.0, "y": 17.0, "cluster": 4}, {"x": 34.0, "y": 73.0, "cluster": 2}, {"x": 37.0, "y": 26.0, "cluster": 4}, {"x": 37.0, "y": 75.0, "cluster": 2}, {"x": 38.0, "y": 35.0, "cluster": 4}, {"x": 38.0, "y": 92.0, "cluster": 2}, {"x": 39.0, "y": 36.0, "cluster": 4}, {"x": 39.0, "y": 61.0, "cluster": 0}, {"x": 39.0, "y": 28.0, "cluster": 4}, {"x": 39.0, "y": 65.0, "cluster": 2}, {"x": 40.0, "y": 55.0, "cluster": 0}, {"x": 40.0, "y": 47.0, "cluster": 0}, {"x": 40.0, "y": 42.0, "cluster": 0}, {"x": 40.0, "y": 42.0, "cluster": 0}, {"x": 42.0, "y": 52.0, "cluster": 0}, {"x": 42.0, "y": 60.0, "cluster": 0}, {"x": 43.0, "y": 54.0, "cluster": 0}, {"x": 43.0, "y": 60.0, "cluster": 0}, {"x": 43.0, "y": 45.0, "cluster": 0}, {"x": 43.0, "y": 41.0, "cluster": 0}, {"x": 44.0, "y": 50.0, "cluster": 0}, {"x": 44.0, "y": 46.0, "cluster": 0}, {"x": 46.0, "y": 51.0, "cluster": 0}, {"x": 46.0, "y": 46.0, "cluster": 0}, {"x": 46.0, "y": 56.0, "cluster": 0}, {"x": 46.0, "y": 55.0, "cluster": 0}, {"x": 47.0, "y": 52.0, "cluster": 0}, {"x": 47.0, "y": 59.0, "cluster": 0}, {"x": 48.0, "y": 51.0, "cluster": 0}, {"x": 48.0, "y": 59.0, "cluster": 0}, {"x": 48.0, "y": 50.0, "cluster": 0}, {"x": 48.0, "y": 48.0, "cluster": 0}, {"x": 48.0, "y": 59.0, "cluster": 0}, {"x": 48.0, "y": 47.0, "cluster": 0}, {"x": 49.0, "y": 55.0, "cluster": 0}, {"x": 49.0, "y": 42.0, "cluster": 0}, {"x": 50.0, "y": 49.0, "cluster": 0}, {"x": 50.0, "y": 56.0, "cluster": 0}, {"x": 54.0, "y": 47.0, "cluster": 0}, {"x": 54.0, "y": 54.0, "cluster": 0}, {"x": 54.0, "y": 53.0, "cluster": 0}, {"x": 54.0, "y": 48.0, "cluster": 0}, {"x": 54.0, "y": 52.0, "cluster": 0}, {"x": 54.0, "y": 42.0, "cluster": 0}, {"x": 54.0, "y": 51.0, "cluster": 0}, {"x": 54.0, "y": 55.0, "cluster": 0}, {"x": 54.0, "y": 41.0, "cluster": 0}, {"x": 54.0, "y": 44.0, "cluster": 0}, {"x": 54.0, "y": 57.0, "cluster": 0}, {"x": 54.0, "y": 46.0, "cluster": 0}, {"x": 57.0, "y": 58.0, "cluster": 0}, {"x": 57.0, "y": 55.0, "cluster": 0}, {"x": 58.0, "y": 60.0, "cluster": 0}, {"x": 58.0, "y": 46.0, "cluster": 0}, {"x": 59.0, "y": 55.0, "cluster": 0}, {"x": 59.0, "y": 41.0, "cluster": 0}, {"x": 60.0, "y": 49.0, "cluster": 0}, {"x": 60.0, "y": 40.0, "cluster": 0}, {"x": 60.0, "y": 42.0, "cluster": 0}, {"x": 60.0, "y": 52.0, "cluster": 0}, {"x": 60.0, "y": 47.0, "cluster": 0}, {"x": 60.0, "y": 50.0, "cluster": 0}, {"x": 61.0, "y": 42.0, "cluster": 0}, {"x": 61.0, "y": 49.0, "cluster": 0}, {"x": 62.0, "y": 41.0, "cluster": 0}, {"x": 62.0, "y": 48.0, "cluster": 0}, {"x": 62.0, "y": 59.0, "cluster": 0}, {"x": 62.0, "y": 55.0, "cluster": 0}, {"x": 62.0, "y": 56.0, "cluster": 0}, {"x": 62.0, "y": 42.0, "cluster": 0}, {"x": 63.0, "y": 50.0, "cluster": 0}, {"x": 63.0, "y": 46.0, "cluster": 0}, {"x": 63.0, "y": 43.0, "cluster": 0}, {"x": 63.0, "y": 48.0, "cluster": 0}, {"x": 63.0, "y": 52.0, "cluster": 0}, {"x": 63.0, "y": 54.0, "cluster": 0}, {"x": 64.0, "y": 42.0, "cluster": 0}, {"x": 64.0, "y": 46.0, "cluster": 0}, {"x": 65.0, "y": 48.0, "cluster": 0}, {"x": 65.0, "y": 50.0, "cluster": 0}, {"x": 65.0, "y": 43.0, "cluster": 0}, {"x": 65.0, "y": 59.0, "cluster": 0}, {"x": 67.0, "y": 43.0, "cluster": 0}, {"x": 67.0, "y": 57.0, "cluster": 0}, {"x": 67.0, "y": 56.0, "cluster": 0}, {"x": 67.0, "y": 40.0, "cluster": 0}, {"x": 69.0, "y": 58.0, "cluster": 0}, {"x": 69.0, "y": 91.0, "cluster": 1}, {"x": 70.0, "y": 29.0, "cluster": 3}, {"x": 70.0, "y": 77.0, "cluster": 1}, {"x": 71.0, "y": 35.0, "cluster": 0}, {"x": 71.0, "y": 95.0, "cluster": 1}, {"x": 71.0, "y": 11.0, "cluster": 3}, {"x": 71.0, "y": 75.0, "cluster": 1}, {"x": 71.0, "y": 9.0, "cluster": 3}, {"x": 71.0, "y": 75.0, "cluster": 1}, {"x": 72.0, "y": 34.0, "cluster": 0}, {"x": 72.0, "y": 71.0, "cluster": 1}, {"x": 73.0, "y": 5.0, "cluster": 3}, {"x": 73.0, "y": 88.0, "cluster": 1}, {"x": 73.0, "y": 7.0, "cluster": 3}, {"x": 73.0, "y": 73.0, "cluster": 1}, {"x": 74.0, "y": 10.0, "cluster": 3}, {"x": 74.0, "y": 72.0, "cluster": 1}, {"x": 75.0, "y": 5.0, "cluster": 3}, {"x": 75.0, "y": 93.0, "cluster": 1}, {"x": 76.0, "y": 40.0, "cluster": 0}, {"x": 76.0, "y": 87.0, "cluster": 1}, {"x": 77.0, "y": 12.0, "cluster": 3}, {"x": 77.0, "y": 97.0, "cluster": 1}, {"x": 77.0, "y": 36.0, "cluster": 3}, {"x": 77.0, "y": 74.0, "cluster": 1}, {"x": 78.0, "y": 22.0, "cluster": 3}, {"x": 78.0, "y": 90.0, "cluster": 1}, {"x": 78.0, "y": 17.0, "cluster": 3}, {"x": 78.0, "y": 88.0, "cluster": 1}, {"x": 78.0, "y": 20.0, "cluster": 3}, {"x": 78.0, "y": 76.0, "cluster": 1}, {"x": 78.0, "y": 16.0, "cluster": 3}, {"x": 78.0, "y": 89.0, "cluster": 1}, {"x": 78.0, "y": 1.0, "cluster": 3}, {"x": 78.0, "y": 78.0, "cluster": 1}, {"x": 78.0, "y": 1.0, "cluster": 3}, {"x": 78.0, "y": 73.0, "cluster": 1}, {"x": 79.0, "y": 35.0, "cluster": 3}, {"x": 79.0, "y": 83.0, "cluster": 1}, {"x": 81.0, "y": 5.0, "cluster": 3}, {"x": 81.0, "y": 93.0, "cluster": 1}, {"x": 85.0, "y": 26.0, "cluster": 3}, {"x": 85.0, "y": 75.0, "cluster": 1}, {"x": 86.0, "y": 20.0, "cluster": 3}, {"x": 86.0, "y": 95.0, "cluster": 1}, {"x": 87.0, "y": 27.0, "cluster": 3}, {"x": 87.0, "y": 63.0, "cluster": 1}, {"x": 87.0, "y": 13.0, "cluster": 3}, {"x": 87.0, "y": 75.0, "cluster": 1}, {"x": 87.0, "y": 10.0, "cluster": 3}, {"x": 87.0, "y": 92.0, "cluster": 1}, {"x": 88.0, "y": 13.0, "cluster": 3}, {"x": 88.0, "y": 86.0, "cluster": 1}, {"x": 88.0, "y": 15.0, "cluster": 3}, {"x": 88.0, "y": 69.0, "cluster": 1}, {"x": 93.0, "y": 14.0, "cluster": 3}, {"x": 93.0, "y": 90.0, "cluster": 1}, {"x": 97.0, "y": 32.0, "cluster": 3}, {"x": 97.0, "y": 86.0, "cluster": 1}, {"x": 98.0, "y": 15.0, "cluster": 3}, {"x": 98.0, "y": 88.0, "cluster": 1}, {"x": 99.0, "y": 39.0, "cluster": 3}, {"x": 99.0, "y": 97.0, "cluster": 1}, {"x": 101.0, "y": 24.0, "cluster": 3}, {"x": 101.0, "y": 68.0, "cluster": 1}, {"x": 103.0, "y": 17.0, "cluster": 3}, {"x": 103.0, "y": 85.0, "cluster": 1}, {"x": 103.0, "y": 23.0, "cluster": 3}, {"x": 103.0, "y": 69.0, "cluster": 1}, {"x": 113.0, "y": 8.0, "cluster": 3}, {"x": 113.0, "y": 91.0, "cluster": 1}, {"x": 120.0, "y": 16.0, "cluster": 3}, {"x": 120.0, "y": 79.0, "cluster": 1}, {"x": 126.0, "y": 28.0, "cluster": 3}, {"x": 126.0, "y": 74.0, "cluster": 1}, {"x": 137.0, "y": 18.0, "cluster": 3}, {"x": 137.0, "y": 83.0, "cluster": 1}]};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>

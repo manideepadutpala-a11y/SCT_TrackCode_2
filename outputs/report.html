@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Mall Customer Segmentation Report</title>
+<style>
+    body { margin: 0; font-family: Arial, sans-serif; background: linear-gradient(180deg, #f0f4ff 0%, #ffffff 100%); color: #333; }
+    .hero { padding: 40px 20px; background: linear-gradient(135deg, #4c72b0 0%, #7b9ee3 100%); color: white; }
+    .container { width: min(1100px, 96%); margin: -40px auto 40px; position: relative; z-index: 2; }
+    .card { background: white; border-radius: 20px; box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08); padding: 25px; margin-bottom: 25px; }
+    .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    h1, h2, h3 { margin-top: 0; }
+    .stats { display: flex; gap: 15px; flex-wrap: wrap; }
+    .stat-card { flex: 1; min-width: 200px; border-radius: 16px; background: linear-gradient(135deg, #edf2ff 0%, #ffffff 100%); padding: 18px; }
+    .stat-card strong { display: block; font-size: 1.8rem; margin-bottom: 8px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 12px 10px; }
+    th { background: #f5f8ff; }
+    tr:nth-child(even) { background: #fafbff; }
+    .image-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+    .image-grid img { width: 100%; border-radius: 16px; border: 1px solid #e3e8ff; }
+</style>
+</head>
+<body>
+<div class="hero">
+    <div class="container">
+        <h1>Mall Customer Segmentation</h1>
+        <p>Using KMeans clustering to identify target customer groups for marketing strategy and customer segmentation.</p>
+    </div>
+</div>
+<div class="container">
+    <div class="card">
+        <h2>Dataset Overview</h2>
+        <div class="stats">
+            <div class="stat-card"><strong>200</strong> Total customers</div>
+            <div class="stat-card"><strong>88</strong> Male customers</div>
+            <div class="stat-card"><strong>112</strong> Female customers</div>
+            <div class="stat-card"><strong>54</strong> High spending score</div>
+            <div class="stat-card"><strong>38</strong> High annual income</div>
+        </div>
+        <p>This analysis groups customers based on annual income and spending score. The final goal is to identify target customer segments that marketing can approach with tailored offers.</p>
+    </div>
+
+    <div class="card">
+        <h2>Customer Segments Summary</h2>
+        <table>
+            <thead>
+                <tr><th>Cluster</th><th>Customers</th><th>Avg Age</th><th>Avg Income (k$)</th><th>Avg Spending</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>0</td><td>81</td><td>42.7</td><td>55.3</td><td>49.5</td></tr>
+<tr><td>1</td><td>39</td><td>32.7</td><td>86.5</td><td>82.1</td></tr>
+<tr><td>2</td><td>22</td><td>25.3</td><td>25.7</td><td>79.4</td></tr>
+<tr><td>3</td><td>35</td><td>41.1</td><td>88.2</td><td>17.1</td></tr>
+<tr><td>4</td><td>23</td><td>45.2</td><td>26.3</td><td>20.9</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card image-grid">
+        <div>
+            <h3>Gender distribution</h3>
+            <img src="gender_distribution.png" alt="Gender distribution" />
+        </div>
+        <div>
+            <h3>Age, income, spending</h3>
+            <img src="age_income_spending.png" alt="Age income spending" />
+        </div>
+        <div>
+            <h3>Spending score by gender</h3>
+            <img src="spending_by_gender.png" alt="Spending by gender" />
+        </div>
+        <div>
+            <h3>Cluster segmentation</h3>
+            <img src="cluster_scatter.png" alt="Cluster scatter" />
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Business Insights</h2>
+        <ul>
+            <li><strong>Target customers</strong> are those with higher income and higher spending score; these customers are best for promotions and premium services.</li>
+            <li><strong>Low spend, high income</strong> customers may need engagement campaigns or festival discounts.</li>
+            <li><strong>Young low-income, high-spending</strong> customers can be targeted with value deals and loyalty programs.</li>
+        </ul>
+        <p>Although the dataset does not contain visit frequency or festival attendance, the clustering result helps the marketing team allocate investment across customer groups and design discount campaigns.</p>
+    </div>
+</div>
+</body>
+</html>
